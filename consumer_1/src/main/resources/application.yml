@@ -12,5 +12,7 @@ spring:
           auto-create-topics: true
       bindings:
         #input?????????????????output?
-        input:
-          destination: stream-demo
+        input_add:
+          destination: bill_add
+        input_del:
+          destination: bill_del

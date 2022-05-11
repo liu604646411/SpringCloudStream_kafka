@@ -12,7 +12,7 @@ spring:
           auto-create-topics: true        #?????false,???????Topic ????Topic???????????
       bindings:
         output_add:
-          destination: bill-add
+          destination: bill_add
           content-type: text/plain
         output_del:
           destination: bill_del
