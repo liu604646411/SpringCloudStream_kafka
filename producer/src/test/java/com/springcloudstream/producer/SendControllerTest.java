@@ -11,7 +11,17 @@ class SendControllerTest {
     private SendService sendService;
 
     @Test
-    public void Send(){
-        sendService.sendMsg("123");
+    public void sendAddMsg(){
+        sendService.sendAddMsg("add");
+    }
+
+    @Test
+    public void sendDelMsg(){
+        sendService.sendDelMsg("delete");
+    }
+
+    @Test
+    public void sendUpdateMsg(){
+        sendService.sendUpdateMsg("update");
     }
 }
