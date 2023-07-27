@@ -15,6 +15,8 @@ public class TomcatThreadPoolExecutorTest {
         TaskThreadFactory tf = new TaskThreadFactory(namePrefix, daemon, Thread.NORM_PRIORITY);
         ThreadPoolExecutor executor = new ThreadPoolExecutor(5,
                 150, 60000, TimeUnit.MILLISECONDS, taskqueue, tf);
+        // 当你把 taskqueue.setParent(executor) 这行代码注释掉的时候，它的运行机制就是 JDK 的线程池。
+        // 当存在这行代码的时候，它的运行机制就变成了 Tomcat 的线程池。
         taskqueue.setParent(executor);
         for (int i = 0; i < 300; i++) {
             try {
