@@ -11,21 +11,24 @@ public class SendService {
     @Autowired
     private MySource source;
 
-    public void sendAddMsg(String msg) {
+    public boolean sendAddMsg(String msg) {
         System.out.println("开始发送:" + msg);
-        source.outputAdd().send(MessageBuilder.withPayload(msg).build());
-        System.out.println("发送成功！");
+        boolean send = source.outputAdd().send(MessageBuilder.withPayload(msg).build());
+        System.out.println(send == true ? "发送成功！" : "发送失败!");
+        return send;
     }
 
-    public void sendDelMsg(String msg) {
+    public boolean sendDelMsg(String msg) {
         System.out.println("开始发送:" + msg);
-        source.outputDel().send(MessageBuilder.withPayload(msg).build());
-        System.out.println("发送成功！");
+        boolean send = source.outputDel().send(MessageBuilder.withPayload(msg).build());
+        System.out.println(send == true ? "发送成功！" : "发送失败!");
+        return send;
     }
 
-    public void sendUpdateMsg(String msg) {
+    public boolean sendUpdateMsg(String msg) {
         System.out.println("开始发送:" + msg);
-        source.outputUpdate().send(MessageBuilder.withPayload(msg).build());
-        System.out.println("发送成功！");
+        boolean send = source.outputUpdate().send(MessageBuilder.withPayload(msg).build());
+        System.out.println(send == true ? "发送成功！" : "发送失败!");
+        return send;
     }
 }
